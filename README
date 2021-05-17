@@ -1,0 +1,38 @@
+1. project_new.sh <project name> [-d <path>] [-h]
+creates:
+project_<project name>/
+├─src/
+│ └─main.c
+├─include/
+├─build/
+├─tests/
+└─Makefile
+
+2. project_add.sh <name> [-h]
+Can be used inside the project folder only!
+adds a <name>.c into src/ and a <name>.h into include
+
+3. project_test.sh [-hlv] [name]
+Can be used inside the project folder only!
+Runs all tests inside the test folder and outpust stats.
+Test have to have the following format: test_<name>.sh.
+If used with -l outputs all test names from the test folder.
+If used with <name> it runs only the specified test. The name should be written without
+the test_ prefix and .sh suffix
+If used with -v it runs all test with valgrind.
+
+4. project_activate.sh [-h]
+Can be used inside the project folder only!
+Opens a new shell where we can use the compiled program as other command shells
+Example:
+ project_new.sh IME_PROJEKTA
+$ cd project_IME_PROJEKTA
+$ project_activate.sh
+IME_PROJEKTA $ IME_PROJEKTA
+hello world
+IME_PROJEKTA $ echo $PROJECT_PATH
+/home/student/project_IME_PROJEKTA/
+
+5. project.sh [-h]
+using new, add, test and activate you can run any of the aforementioned
+scripts, but you have to follow the rules which were previously specified
